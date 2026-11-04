@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "asvab-vocab-app",
-    "slug": "asvab-vocab-app",
+    "name": "ASVAB Vocab Master",
+    "slug": "asvab-vocab-master",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "asvabvocabapp",
+    "scheme": "asvabvocmaster",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
@@ -20,7 +20,8 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "server",
+      "bundler": "metro",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
@@ -28,7 +29,7 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#0D1422",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
