@@ -3,17 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import { ActionButton, Body, Card, Page, Title } from '@/components/StudyUI';
 import { QuizOption } from '@/components/QuizOption';
 import { getWord } from '@/data/vocabulary';
-import { getQuizSet } from '@/utils/quiz';
 import { useStudy } from '@/state/StudyStateProvider';
-
-const questions = getQuizSet(10);
 
 export default function QuizScreen() {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
-  const { palette, finishQuiz } = useStudy();
+  const { palette, finishQuiz, newQuiz, state } = useStudy();
+  const questions = state.quizQuestions;
   const question = questions[index];
   const target = question ? getWord(question.wordId) : undefined;
   const correct = selected === question?.wordId;
@@ -32,7 +30,7 @@ export default function QuizScreen() {
     setIndex((value) => value + 1);
     setSelected(null);
   };
-  const restart = () => { setIndex(0); setSelected(null); setScore(0); setFinished(false); };
+  const restart = () => { newQuiz(); setIndex(0); setSelected(null); setScore(0); setFinished(false); };
 
   return <Page>
     <Title eyebrow="Practice quiz" subtitle="Choose the meaning that best fits the word in context.">Word Knowledge check</Title>
