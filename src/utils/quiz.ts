@@ -1,5 +1,5 @@
-import type { QuizQuestion, VocabularyWord } from '@/types/study';
-import { vocabulary } from '@/data/vocabulary';
+import type { QuizQuestion, VocabularyWord } from '../types/study.ts';
+import { vocabulary } from '../data/vocabulary.ts';
 
 function shuffled<T>(items: readonly T[]): T[] {
   const result = [...items];
